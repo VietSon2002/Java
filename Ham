@@ -1,0 +1,82 @@
+import java.io.StringReader;
+import java.util.Scanner;
+public class B1 {
+    public static void B1() {
+        System.out.println("Lap Trinh Java 2021");
+    }
+    public static void B2(String s) {
+        System.out.println("Xau da nhap: "+s);
+    }
+    public static void B3(int a) {
+        if (a > 0) {
+            for (int i = 0; i < a; i++) {
+            B2("Xin chao !");
+            }
+        } else {
+            System.out.println("Nhap sai du lieu !");
+        }
+    }
+    public static void PT1(double a, double b) {
+        if (a == 0) {
+            if (b == 0) {
+                System.out.println("Phuong trinh vo so nghiem");
+        } else {
+                System.out.println("Phuong trinh vo nghiem");
+        }
+    } else {
+        double t = -b/a;
+        System.out.println("Phuong trinh bat 1 co nghiem la: "+t);
+    }
+}
+    public static void PT2(double a, double b, double c) {
+        if (a == 0) {
+            PT1(b, c);
+
+        } else {
+            double t = b * b - 4 * a * c;
+        if (a != 0 ) {
+            if (t < 0) {
+                System.out.println("Phuong trinh vo nghiem");
+                return;
+            } 
+        } else if (t > 0) {
+            System.out.println("Phuong trinh co 2 nghiem phan biet");
+            System.out.println("X1: "+((-b+Math.sqrt(t))/2*a));
+            System.out.println("X2: "+((-b-Math.sqrt(t))/2*a));
+        } else {
+            System.out.println("Phuong trinh co nghiem kep");
+            System.out.println("X1 = X2 = "+(-b/2*a));  
+        }
+    }
+    public static void B6(int x) {
+        if (x == 1) {
+            System.out.println("Nhap lan luot a va b.");
+            Scanner sc = new Scanner(System.in);
+            double a = sc.nextDouble();
+            double b = sc.nextDouble();
+            PT1(a, b);
+        } else if (x == 2) {
+            System.out.println("Nhap lan luot a, b va c.");
+            Scanner sc = new Scanner(System.in);
+            double a = sc.nextDouble();
+            double b = sc.nextDouble();
+            double c = sc.nextDouble();
+            PT2(a, b, c);
+        } else System.out.println("Nhap sai !");
+    }
+    public static void B7(String s, int x) {
+        System.out.println("Tiep tuc thuc hien lai ?");
+        if (s == "co") {
+            B6(x);
+        } else System.out.println("Dung chuong trinh !");
+    }
+    public static void main(String[] args) {
+        B1();
+        B2("xin chao");
+        B3(3);
+        PT1(5,4);
+        PT2(5, -2, 1);
+        B6(2);
+        B7("co", 1);
+    }
+}
